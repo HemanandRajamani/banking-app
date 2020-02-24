@@ -13,12 +13,12 @@ public class Account {
 	private Integer id;
 	private BigDecimal balance;
 
-	public Account withdraw(BigDecimal amount) {
+	public synchronized Account withdraw(BigDecimal amount) {
 		this.setBalance(this.getBalance().subtract(amount));
 		return this;
 	}
 
-	public Account deposit(BigDecimal amount) {
+	public synchronized Account deposit(BigDecimal amount) {
 		this.setBalance(this.getBalance().add(amount));
 		return this;
 	}
